@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="exampleToast">
+        <item name="cardBackgroundColor">#FF03DAC5</item>
+
+
+    </style>
+
+    <style name="mytoast">
+        <item name="stTextBold">true</item>
+        <item name="stTextColor">#fff000</item>
+        <item name="stTextSize">14sp</item>
+        <item name="stColorBackground">#000</item>
+        <item name="stSolidBackground">true</item>
+        <item name="stStrokeWidth">3dp</item>
+        <item name="stStrokeColor">#fff</item>
+        <item name="stIconStart">@drawable/ic_launcher_foreground</item>
+        <item name="stIconEnd">@drawable/ic_launcher_foreground</item>
+        <item name="stLength">LONG</item> LONG or SHORT
+        <item name="stGravity">top</item> top or center
+        <item name="stRadius">5dp</item>
+    </style>
+
+    <style name="DialogAnimation">
+        <item name="android:windowEnterAnimation">@android:anim/fade_in</item>
+        <item name="android:windowExitAnimation">@android:anim/fade_out</item>
+    </style>
+</resources>

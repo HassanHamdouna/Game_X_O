@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@drawable/ic_custom_background"
+    tools:context=".AllScreen.MainActivity">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Enter Player Names"
+        android:layout_marginTop="@dimen/_120sdp"
+        android:textColor="@color/white"
+        android:gravity="center"
+        android:textSize="@dimen/_22ssp">
+
+    </TextView>
+    <LinearLayout
+        android:background="@color/dart_blue"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/_10sdp"
+        android:layout_marginTop="@dimen/_50sdp"
+        android:layout_marginStart="@dimen/_10sdp"
+        android:padding="@dimen/_5sdp"
+        android:orientation="horizontal">
+
+
+        <ImageView
+            android:id="@+id/imageView_x"
+            android:layout_width="@dimen/_15sdp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:scaleType="fitCenter"
+            app:srcCompat="@drawable/crossicon2" />
+
+        <EditText
+            android:id="@+id/et_name_one"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="3"
+            android:ems="10"
+            android:textColor="@color/white"
+            android:inputType="textPersonName"
+            android:textColorLink="@color/white"
+            android:textColorHint="@color/white"
+            android:hint="Name player one" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:background="@color/dart_blue"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/_10sdp"
+        android:layout_marginStart="@dimen/_10sdp"
+        android:padding="@dimen/_5sdp"
+        android:layout_marginTop="@dimen/_20sdp"
+        android:orientation="horizontal">
+
+
+        <ImageView
+            android:id="@+id/imageView_o"
+            android:layout_width="@dimen/_15sdp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            app:srcCompat="@drawable/o" />
+
+        <EditText
+            android:id="@+id/et_name_tow"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="3"
+            android:ems="10"
+            android:textColor="@color/white"
+            android:inputType="textPersonName"
+            android:textColorLink="@color/white"
+            android:textColorHint="@color/white"
+            android:hint="Name player tow" />
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/bt_star"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_50sdp"
+        android:layout_marginEnd="@dimen/_10sdp"
+        android:layout_marginStart="@dimen/_10sdp"
+        android:textSize="@dimen/_16sdp"
+        android:background="@drawable/bt_corner_background"
+        android:text="Start Game" />
+
+    <ImageView
+        android:id="@+id/imageView50"
+        android:layout_width="@dimen/_60sdp"
+        android:layout_height="@dimen/_20sdp"
+        android:layout_gravity="end"
+        android:layout_marginTop="@dimen/_50sdp"
+        android:layout_weight="1"
+        app:srcCompat="@drawable/image_games" />
+
+    <com.google.android.gms.ads.AdView
+        android:id="@+id/adView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        app:adSize="BANNER"
+        android:layout_gravity="end"
+        app:adUnitId="ca-app-pub-3940256099942544/6300978111">
+
+    </com.google.android.gms.ads.AdView>
+
+
+</LinearLayout>
