@@ -1,11 +1,11 @@
-package com.example.game_x_o.Service;
+package com.hassan2.game_x_o.Service;
 
 import android.app.Service;
 import android.content.Intent;
 import android.media.MediaPlayer;
 import android.os.IBinder;
 
-import com.example.game_x_o.R;
+import com.hassan2.game_x_o.R;
 
 
 public class MyService extends Service {

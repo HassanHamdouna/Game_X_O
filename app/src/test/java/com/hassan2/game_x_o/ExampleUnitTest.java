@@ -1,4 +1,4 @@
-package com.example.game_x_o;
+package com.hassan2.game_x_o;
 
 import org.junit.Test;
 

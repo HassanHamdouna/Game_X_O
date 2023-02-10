@@ -1,4 +1,4 @@
-package com.example.game_x_o.AllScreen;
+package com.hassan2.game_x_o.AllScreen;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -9,8 +9,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
 
 import com.airbnb.lottie.LottieAnimationView;
-import com.example.game_x_o.R;
-import com.example.game_x_o.databinding.ActivitySplashScreenBinding;
+import com.hassan2.game_x_o.R;
+import com.hassan2.game_x_o.databinding.ActivitySplashScreenBinding;
+
 
 public class SplashScreen extends AppCompatActivity {
     ActivitySplashScreenBinding binding;
@@ -23,7 +24,9 @@ public class SplashScreen extends AppCompatActivity {
         setContentView(binding.getRoot());
         Window window = getWindow();
         window.setStatusBarColor(ContextCompat.getColor(getApplicationContext(), R.color.light_blue_1));
-
+//        requestWindowFeature(Window.FEATURE_NO_TITLE);
+//        this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
+//        getSupportActionBar().hide();
         animationView =findViewById(R.id.Lottie_Animation);
         Handler handler = new Handler();
         handler.postDelayed(new Runnable() {
@@ -43,8 +46,7 @@ public class SplashScreen extends AppCompatActivity {
                 Intent intent = new Intent(getApplicationContext(), MainActivity.class);
                 startActivity(intent);
                 finish();
-              //  Intent intentService = new Intent(getApplicationContext(),MyService.class);
-            //    startService(intentService);
+
             }
         },5500);
 

@@ -1,4 +1,4 @@
-package com.example.game_x_o.AllScreen;
+package com.hassan2.game_x_o.AllScreen;
 
 import android.content.Intent;
 import android.media.MediaPlayer;
@@ -7,17 +7,15 @@ import android.util.Log;
 import android.view.View;
 import android.view.Window;
 import android.widget.ImageView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
 
-import com.example.game_x_o.Fragment.BlankFragment;
-import com.example.game_x_o.R;
-import com.example.game_x_o.Service.MyService;
-import com.example.game_x_o.Service.MyService_Click;
-import com.example.game_x_o.databinding.ActivityStartGameBinding;
+import com.hassan2.game_x_o.R;
+import com.hassan2.game_x_o.databinding.ActivityStartGameBinding;
+import com.hassan2.game_x_o.Fragment.BlankFragment;
+import com.hassan2.game_x_o.Service.MyService;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.FullScreenContentCallback;
 import com.google.android.gms.ads.LoadAdError;
@@ -48,7 +46,7 @@ public class StartGame extends AppCompatActivity {
     @Override
     protected  void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        binding =ActivityStartGameBinding.inflate(getLayoutInflater());
+        binding = ActivityStartGameBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
         Window window = getWindow();
         window.setStatusBarColor(ContextCompat.getColor(getApplicationContext(), R.color.light_blue_1));
@@ -75,15 +73,7 @@ public class StartGame extends AppCompatActivity {
             public void onClick(View view) {
                 if(isBoxSelectable(0)){
                     performAction((ImageView) view,0);
-                    /*
 
-                    if(My_Song_Click.isPlaying()){
-                        My_Song_Click.stop();
-                        My_Song_Click.release();
-                    }
-                    My_Song_Click.start();
-
-                     */
 
                 }
 
@@ -139,14 +129,7 @@ public class StartGame extends AppCompatActivity {
             public void onClick(View view) {
                 if(isBoxSelectable(5)){
                     performAction((ImageView) view,5);
-                    /*
-                    if(My_Song_Click.isPlaying()){
-                        My_Song_Click.stop();
-                        My_Song_Click.release();
-                    }
-                    My_Song_Click.start();
 
-                     */
                 }
 
             }
@@ -370,23 +353,7 @@ public class StartGame extends AppCompatActivity {
         }
     }
 
-    private void startPlayer_My_Song_Click() {
-        Intent intentService = new Intent(getApplicationContext(), MyService_Click.class);
-        startService(intentService);
-    /*    if (My_Song_Click == null && !My_Song_Click.isPlaying()) {
-            My_Song_Click =MediaPlayer.create(getBaseContext(),R.raw.song_click_enter);
-            My_Song_Click.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
-                @Override
-                public void onCompletion(MediaPlayer mediaPlayer) {
-                    stopPlayer_My_Song_Click();
-                }
-            });
 
-        }
-        My_Song_Click.start();
-
-     */
-    }
 
     @Override
     protected void onStop() {
@@ -397,12 +364,11 @@ public class StartGame extends AppCompatActivity {
     public void setAds() {
         AdRequest adRequest = new AdRequest.Builder().build();
 
-        InterstitialAd.load(this, "ca-app-pub-3940256099942544/1033173712", adRequest,
+        InterstitialAd.load(this, "ca-app-pub-5139982073945832/9056551142", adRequest,
                 new InterstitialAdLoadCallback() {
                     @Override
                     public void onAdLoaded(@NonNull InterstitialAd interstitialAd) {
-                        // The mInterstitialAd reference will be null until
-                        // an ad is loaded.
+
                         mInterstitialAd = interstitialAd;
                     }
 
