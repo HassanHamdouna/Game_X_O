@@ -103,12 +103,12 @@
 
     <com.google.android.gms.ads.AdView
         android:id="@+id/adView"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         app:adSize="BANNER"
-        android:layout_gravity="end"
+        android:layout_gravity="center"
         app:adUnitId="ca-app-pub-5139982073945832/1122236714">
 
     </com.google.android.gms.ads.AdView>

@@ -13,6 +13,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
 
 import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdSize;
 import com.google.android.gms.ads.FullScreenContentCallback;
 import com.google.android.gms.ads.LoadAdError;
 import com.google.android.gms.ads.MobileAds;
@@ -29,7 +30,6 @@ import io.github.muddz.styleabletoast.StyleableToast;
 public class MainActivity extends AppCompatActivity {
     ActivityMainBinding binding ;
     private InterstitialAd mInterstitialAd;
-  // change name package
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,39 +37,35 @@ public class MainActivity extends AppCompatActivity {
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
         Window window = getWindow();
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            window.setStatusBarColor(ContextCompat.getColor(getApplicationContext(), R.color.light_blue_1));
-        }
+
+        window.setStatusBarColor(ContextCompat.getColor(getApplicationContext(), R.color.light_blue_1));
 
         MobileAds.initialize(this, new OnInitializationCompleteListener() {
             @Override
-            public void onInitializationComplete(InitializationStatus initializationStatus) {
+            public void onInitializationComplete(@NonNull InitializationStatus initializationStatus) {
 
             }
         });
-        setAds();
-        binding.imageView50.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (mInterstitialAd != null) {
-                    mInterstitialAd.show(MainActivity.this);
-                    mInterstitialAd.setFullScreenContentCallback(new FullScreenContentCallback() {
-                        @Override
-                        public void onAdImpression() {
-                            super.onAdImpression();
 
-                        }
-                    });
-                } else {
-                    Log.d("TAG", "The interstitial ad wasn't ready yet.");
 
-                }
-            }
-        });
+
 
 
         AdRequest adRequest = new AdRequest.Builder().build();
         binding.adView.loadAd(adRequest);
+        InterstitialAd.load(this, "ca-app-pub-5139982073945832/1122236714", adRequest,
+                new InterstitialAdLoadCallback() {
+                    @Override
+                    public void onAdLoaded(@NonNull InterstitialAd interstitialAd) {
+                        mInterstitialAd = interstitialAd;
+                    }
+
+                    @Override
+                    public void onAdFailedToLoad(@NonNull LoadAdError loadAdError) {
+                        // Handle the error
+                        mInterstitialAd = null;
+                    }
+                });
 
 
 
@@ -124,7 +120,6 @@ public class MainActivity extends AppCompatActivity {
 
     public void setAds() {
         AdRequest adRequest = new AdRequest.Builder().build();
-
         InterstitialAd.load(this, "ca-app-pub-5139982073945832/1122236714", adRequest,
                 new InterstitialAdLoadCallback() {
                     @Override
@@ -138,6 +133,9 @@ public class MainActivity extends AppCompatActivity {
                         mInterstitialAd = null;
                     }
                 });
+
+
+
     }
 
 }
