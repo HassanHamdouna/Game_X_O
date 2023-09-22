@@ -364,7 +364,7 @@ public class StartGame extends AppCompatActivity {
     public void setAds() {
         AdRequest adRequest = new AdRequest.Builder().build();
 
-        InterstitialAd.load(this, "ca-app-pub-5139982073945832/9056551142", adRequest,
+        InterstitialAd.load(getApplicationContext(), "ca-app-pub-5139982073945832/9056551142", adRequest,
                 new InterstitialAdLoadCallback() {
                     @Override
                     public void onAdLoaded(@NonNull InterstitialAd interstitialAd) {

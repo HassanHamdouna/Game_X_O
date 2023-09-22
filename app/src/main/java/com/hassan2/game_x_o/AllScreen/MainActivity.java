@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.view.Window;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -14,7 +15,7 @@ import androidx.core.content.ContextCompat;
 
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdSize;
-import com.google.android.gms.ads.FullScreenContentCallback;
+import com.google.android.gms.ads.AdView;
 import com.google.android.gms.ads.LoadAdError;
 import com.google.android.gms.ads.MobileAds;
 import com.google.android.gms.ads.initialization.InitializationStatus;
@@ -29,6 +30,8 @@ import io.github.muddz.styleabletoast.StyleableToast;
 
 public class MainActivity extends AppCompatActivity {
     ActivityMainBinding binding ;
+    AdRequest adRequest;
+
     private InterstitialAd mInterstitialAd;
 
     @Override
@@ -42,18 +45,22 @@ public class MainActivity extends AppCompatActivity {
 
         MobileAds.initialize(this, new OnInitializationCompleteListener() {
             @Override
-            public void onInitializationComplete(@NonNull InitializationStatus initializationStatus) {
-
+            public void onInitializationComplete(InitializationStatus initializationStatus) {
             }
         });
 
+        AdView adView = new AdView(this);
+        adView.setAdSize(AdSize.BANNER);
+
+        adView.setAdUnitId("ca-app-pub-5139982073945832/1122236714");
 
 
-
-
-        AdRequest adRequest = new AdRequest.Builder().build();
+        AdRequest  adRequest = new AdRequest.Builder().build();
         binding.adView.loadAd(adRequest);
-        InterstitialAd.load(this, "ca-app-pub-5139982073945832/1122236714", adRequest,
+
+
+
+        InterstitialAd.load(getApplicationContext(), "ca-app-pub-5139982073945832/1122236714", adRequest,
                 new InterstitialAdLoadCallback() {
                     @Override
                     public void onAdLoaded(@NonNull InterstitialAd interstitialAd) {
@@ -64,6 +71,7 @@ public class MainActivity extends AppCompatActivity {
                     public void onAdFailedToLoad(@NonNull LoadAdError loadAdError) {
                         // Handle the error
                         mInterstitialAd = null;
+
                     }
                 });
 
